@@ -1,0 +1,138 @@
+{
+  "experiment_name": "recommendation_llm_production",
+  "version": "v2_production",
+  "timestamp": "2026-05-21T20:37:51.310106",
+  "labels": [
+    "CONSIDER",
+    "DO_NOT_RECOMMEND",
+    "RECOMMEND"
+  ],
+  "device": "mps",
+  "model_ref": "/Users/jatinder.singh/drive/ai_mkt/models/qwen2.5-0.5b-instruct-q5_0.gguf",
+  "model_base_ref": "/Users/jatinder.singh/drive/ai_mkt/models",
+  "gguf_file": "qwen2.5-0.5b-instruct-q5_0.gguf",
+  "adapter_dir": "/Users/jatinder.singh/drive/ai_mkt/experimentation/artifacts/recommendation_llm_production/final_model/lora_adapter",
+  "config": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "local_model_path": "/Users/jatinder.singh/drive/ai_mkt/models/qwen2.5-0.5b-instruct-q5_0.gguf",
+    "model_source": "local_only",
+    "max_length": 384,
+    "gen_max_new_tokens": 40,
+    "train_batch_size": 1,
+    "eval_batch_size": 8,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 5e-05,
+    "weight_decay": 0.05,
+    "num_epochs": 4,
+    "max_steps": 600,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "early_stopping_patience": 3,
+    "early_stopping_threshold": 0.001,
+    "lora_r": 16,
+    "lora_alpha": 16,
+    "lora_dropout": 0.1,
+    "lora_target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "replay_ratio": 0.15,
+    "replay_examples_count": 400,
+    "augment_truncation_ratios": [
+      0.5,
+      0.7,
+      0.9
+    ],
+    "augment_copies": 1,
+    "tokenize_num_proc": 8,
+    "dataloader_num_workers": 0,
+    "max_raw_rows": 50000,
+    "train_samples": 2500,
+    "val_samples": 700,
+    "test_samples": 700,
+    "baseline_eval_samples": 300,
+    "final_eval_samples": 700,
+    "forgetting_threshold_low": 0.05,
+    "forgetting_threshold_moderate": 0.15,
+    "data_path": "/Users/jatinder.singh/drive/ai_mkt/data/raw/recommendation/Reviews.csv"
+  },
+  "baseline_metrics": {
+    "accuracy": 0.48,
+    "precision_macro": 0.4712062134315538,
+    "recall_macro": 0.4800725218152883,
+    "f1_macro": 0.4665035320190221,
+    "schema_valid_rate": 0.8033333333333333,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 930.462482770284,
+    "latency_ms_p95": 1400.2349972724924
+  },
+  "after_metrics": {
+    "accuracy": 0.74,
+    "precision_macro": 0.7343974990931011,
+    "recall_macro": 0.7392200970743533,
+    "f1_macro": 0.7347789511284338,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 553.1875491142273,
+    "latency_ms_p95": 842.1727418899536
+  },
+  "improvement": {
+    "accuracy": 0.26,
+    "precision_macro": 0.26319128566154737,
+    "recall_macro": 0.259147575259065,
+    "f1_macro": 0.2682754191094117,
+    "schema_valid_rate": 0.19666666666666666,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": -377.27493365605676,
+    "latency_ms_p95": -558.0622553825388
+  },
+  "forgetting_rate": 0.6666666666666666,
+  "forgetting_verdict": "HIGH \u2014 consider lower LR, fewer steps, or more replay",
+  "general_capability": {
+    "base_accuracy": 0.485,
+    "finetuned_accuracy": 0.67,
+    "retention_pct": 138.14432989690724,
+    "by_category": {
+      "math": {
+        "base": 0.9444444444444444,
+        "finetuned": 0.37037037037037035,
+        "delta": -0.5740740740740741
+      },
+      "general_knowledge": {
+        "base": 0.7906976744186046,
+        "finetuned": 0.9069767441860465,
+        "delta": 0.11627906976744184
+      },
+      "instruction_following": {
+        "base": 0.23529411764705882,
+        "finetuned": 0.45098039215686275,
+        "delta": 0.21568627450980393
+      },
+      "json_format": {
+        "base": 0.0,
+        "finetuned": 1.0,
+        "delta": 1.0
+      }
+    }
+  },
+  "noise_robustness": {
+    "noise_type": "50% text truncation",
+    "accuracy": 0.7,
+    "clean_accuracy": 0.74
+  },
+  "sklearn_baselines": {
+    "LogisticRegression": {
+      "accuracy": 0.6314285714285715,
+      "f1_macro": 0.6305122223456118
+    },
+    "RandomForest (n=200)": {
+      "accuracy": 0.5628571428571428,
+      "f1_macro": 0.5624181852204609
+    },
+    "GradientBoosting (n=100)": {
+      "accuracy": 0.5914285714285714,
+      "f1_macro": 0.5894344419237211
+    }
+  },
+  "train_time_minutes": 51.35524696111679
+}

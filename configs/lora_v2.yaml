@@ -1,0 +1,10 @@
+base_model: Qwen/Qwen2.5-0.5B-Instruct
+output_dir: models/lora_v2
+seed: 42
+train:
+  learning_rate: 0.0001
+  num_train_epochs: 3
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.05

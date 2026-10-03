@@ -1,0 +1,13 @@
+{
+  "total_customers": 4338,
+  "reference_date": null,
+  "recency_avg": 92.53642231443061,
+  "frequency_avg": 4.272014753342554,
+  "monetary_avg": 2054.2664601198708,
+  "segments": {
+    "Needs Attention": 1456,
+    "Loyal": 1205,
+    "Champions": 868,
+    "At Risk": 809
+  }
+}

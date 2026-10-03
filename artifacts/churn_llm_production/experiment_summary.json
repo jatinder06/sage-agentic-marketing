@@ -1,0 +1,45 @@
+{
+  "experiment_name": "churn_llm_production",
+  "timestamp": "2026-05-21T10:37:42.133400",
+  "labels": [
+    "HIGH_RISK",
+    "LOW_RISK"
+  ],
+  "device": "mps",
+  "model_ref": "/Users/jatinder.singh/drive/ai_mkt/models/qwen2.5-0.5b-instruct-q5_0.gguf",
+  "model_base_ref": "/Users/jatinder.singh/drive/ai_mkt/models",
+  "gguf_file": "qwen2.5-0.5b-instruct-q5_0.gguf",
+  "adapter_dir": "/Users/jatinder.singh/drive/ai_mkt/experimentation/artifacts/churn_llm_production/final_model/lora_adapter",
+  "baseline_metrics": {
+    "accuracy": 0.7727272727272727,
+    "precision_macro": 0.38636363636363635,
+    "recall_macro": 0.5,
+    "f1_macro": 0.4358974358974359,
+    "schema_valid_rate": 0.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 590.9617532383312,
+    "latency_ms_p95": 634.5956921577452
+  },
+  "after_metrics": {
+    "accuracy": 0.7914285714285715,
+    "precision_macro": 0.718741297688666,
+    "recall_macro": 0.6809292428513453,
+    "f1_macro": 0.6947103033779021,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 397.9737547465733,
+    "latency_ms_p95": 677.369678020477
+  },
+  "improvement": {
+    "accuracy": 0.018701298701298774,
+    "precision_macro": 0.33237766132502966,
+    "recall_macro": 0.18092924285134526,
+    "f1_macro": 0.25881286748046617,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": -192.98799849175788,
+    "latency_ms_p95": 42.773985862731706
+  },
+  "forgetting_rate": 0.14705882352941177,
+  "train_time_minutes": 62.19628814856211
+}

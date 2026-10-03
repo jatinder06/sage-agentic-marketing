@@ -1,0 +1,125 @@
+# Project Configuration File
+
+project:
+  name: "AI-Driven Tools in Digital Marketing"
+  version: "1.0.0"
+  author: "Your Name"
+  description: "Enhancing Customer Experience with AI"
+
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_external: "data/external"
+  models: "src/models/saved_models"
+  outputs: "docs/reports/outputs"
+  logs: "logs"
+
+data:
+  train_split: 0.7
+  validation_split: 0.15
+  test_split: 0.15
+  random_seed: 42
+
+preprocessing:
+  missing_value_threshold: 0.3
+  outlier_method: "iqr"  # options: iqr, zscore
+  scaling_method: "standard"  # options: standard, minmax, robust
+  encoding_method: "onehot"  # options: onehot, label, target
+
+feature_engineering:
+  create_interaction_features: true
+  polynomial_features: false
+  feature_selection_method: "mutual_info"  # options: mutual_info, chi2, rfe
+
+models:
+  # Customer Segmentation
+  clustering:
+    algorithm: "kmeans"  # options: kmeans, dbscan, hierarchical
+    n_clusters: 5
+    random_state: 42
+  
+  # Recommendation Engine
+  recommendation:
+    method: "collaborative"  # options: collaborative, content_based, hybrid
+    n_recommendations: 10
+    similarity_metric: "cosine"  # options: cosine, pearson, euclidean
+  
+  # Churn Prediction
+  churn_prediction:
+    algorithm: "random_forest"  # options: logistic, random_forest, xgboost, neural_network
+    hyperparameters:
+      n_estimators: 100
+      max_depth: 10
+      min_samples_split: 5
+  
+  # CLV Prediction
+  clv_prediction:
+    algorithm: "xgboost"
+    evaluation_metric: "rmse"
+  
+  # Sentiment Analysis
+  sentiment:
+    model: "textblob"  # options: textblob, vader, transformers
+    language: "en"
+
+    # Transformer models configuration
+    distilbert:
+      model_name: "distilbert-base-uncased"
+      max_length: 128
+      batch_size: 16
+      learning_rate: 2e-5
+      epochs: 3
+
+    roberta:
+      model_name: "roberta-base"
+      max_length: 256
+      batch_size: 16
+      learning_rate: 2e-5
+      epochs: 3
+
+  # Model comparison settings
+  comparison:
+    benchmark_batch_sizes: [1, 8, 16, 32]
+    metrics: ['accuracy', 'precision', 'recall', 'f1', 'roc_auc']
+    inference_samples: 100
+
+evaluation:
+  classification_metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+    - "roc_auc"
+  
+  regression_metrics:
+    - "mae"
+    - "mse"
+    - "rmse"
+    - "r2"
+  
+  cross_validation:
+    enabled: true
+    n_folds: 5
+
+dashboard:
+  framework: "streamlit"  # options: streamlit, dash
+  host: "localhost"
+  port: 8501
+  theme: "light"  # options: light, dark
+
+visualization:
+  color_palette: "Set2"
+  figure_size: [12, 6]
+  dpi: 100
+  style: "seaborn"
+
+logging:
+  level: "INFO"  # options: DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  save_to_file: true
+
+adk_agent:
+  default_model_gemini: "gemini-3.1-flash-lite"
+  sub_agent_model_gemini: "gemini-3.1-flash-lite"
+  orchestrator_model_gemini: "gemini-3.1-flash-lite"
+  orchestrator_model_litellm: "openrouter/google/gemma-4-31b-it:free"

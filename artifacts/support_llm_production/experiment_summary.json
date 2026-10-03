@@ -1,0 +1,48 @@
+{
+  "experiment_name": "support_llm_production",
+  "timestamp": "2026-05-21T12:29:08.948971",
+  "labels": [
+    "ACCOUNT",
+    "BILLING",
+    "DELIVERY",
+    "GENERAL",
+    "TECHNICAL"
+  ],
+  "device": "mps",
+  "model_ref": "/Users/jatinder.singh/drive/ai_mkt/models/qwen2.5-0.5b-instruct-q5_0.gguf",
+  "model_base_ref": "/Users/jatinder.singh/drive/ai_mkt/models",
+  "gguf_file": "qwen2.5-0.5b-instruct-q5_0.gguf",
+  "adapter_dir": "/Users/jatinder.singh/drive/ai_mkt/experimentation/artifacts/support_llm_production/final_model/lora_adapter",
+  "baseline_metrics": {
+    "accuracy": 0.32727272727272727,
+    "precision_macro": 0.32048551707863837,
+    "recall_macro": 0.3152834008097166,
+    "f1_macro": 0.22513210327537383,
+    "schema_valid_rate": 0.05909090909090909,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 542.6618857817216,
+    "latency_ms_p95": 900.5108237266539
+  },
+  "after_metrics": {
+    "accuracy": 0.9471428571428572,
+    "precision_macro": 0.9502334636039842,
+    "recall_macro": 0.9495002665256888,
+    "f1_macro": 0.9494698829123462,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 1146.8089747428894,
+    "latency_ms_p95": 2337.404024600982
+  },
+  "improvement": {
+    "accuracy": 0.6198701298701299,
+    "precision_macro": 0.6297479465253458,
+    "recall_macro": 0.6342168657159721,
+    "f1_macro": 0.7243377796369724,
+    "schema_valid_rate": 0.9409090909090909,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 604.1470889611678,
+    "latency_ms_p95": 1436.8932008743282
+  },
+  "forgetting_rate": 0.7916666666666666,
+  "train_time_minutes": 31.787330448627472
+}

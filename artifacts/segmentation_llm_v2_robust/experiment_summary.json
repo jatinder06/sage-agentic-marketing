@@ -1,0 +1,141 @@
+{
+  "experiment_name": "segmentation_llm_v2_robust",
+  "version": "v2",
+  "timestamp": "2026-05-18T14:11:47.516992",
+  "labels": [
+    "At Risk",
+    "Champions",
+    "Loyal",
+    "Needs Attention"
+  ],
+  "device": "mps",
+  "model_ref": "/Users/jatinder.singh/drive/ai_mkt/models/qwen2.5-0.5b-instruct-q5_0.gguf",
+  "model_base_ref": "/Users/jatinder.singh/drive/ai_mkt/models",
+  "gguf_file": "qwen2.5-0.5b-instruct-q5_0.gguf",
+  "adapter_dir": "/Users/jatinder.singh/drive/ai_mkt/experimentation/artifacts/segmentation_llm_v2_robust/final_model/lora_adapter",
+  "config": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "local_model_path": "/Users/jatinder.singh/drive/ai_mkt/models/qwen2.5-0.5b-instruct-q5_0.gguf",
+    "model_source": "local_only",
+    "max_length": 384,
+    "gen_max_new_tokens": 40,
+    "train_batch_size": 1,
+    "eval_batch_size": 8,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 5e-05,
+    "weight_decay": 0.05,
+    "num_epochs": 4,
+    "max_steps": 600,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "early_stopping_patience": 3,
+    "early_stopping_threshold": 0.001,
+    "lora_r": 16,
+    "lora_alpha": 16,
+    "lora_dropout": 0.1,
+    "lora_target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "replay_ratio": 0.15,
+    "replay_examples_count": 400,
+    "augment_noise_pct": 0.08,
+    "augment_copies": 1,
+    "tokenize_num_proc": 8,
+    "dataloader_num_workers": 0,
+    "max_raw_rows": 50000,
+    "train_samples": 2500,
+    "val_samples": 700,
+    "test_samples": 700,
+    "baseline_eval_samples": 300,
+    "final_eval_samples": 700,
+    "forgetting_threshold_low": 0.05,
+    "forgetting_threshold_moderate": 0.15,
+    "data_path": "/Users/jatinder.singh/drive/ai_mkt/data/processed/segmentation/rfm_features.csv"
+  },
+  "baseline_metrics": {
+    "accuracy": 0.2,
+    "precision_macro": 0.05,
+    "recall_macro": 0.25,
+    "f1_macro": 0.08333333333333333,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 364.65987126032513,
+    "latency_ms_p95": 509.9384784698487
+  },
+  "after_metrics": {
+    "accuracy": 0.9124423963133641,
+    "precision_macro": 0.9183874067950296,
+    "recall_macro": 0.9143146827405416,
+    "f1_macro": 0.9158790365676932,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 382.3227897034629,
+    "latency_ms_p95": 484.1289520263672
+  },
+  "improvement": {
+    "accuracy": 0.7124423963133641,
+    "precision_macro": 0.8683874067950296,
+    "recall_macro": 0.6643146827405416,
+    "f1_macro": 0.8325457032343598,
+    "schema_valid_rate": 0.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 17.662918443137755,
+    "latency_ms_p95": -25.809526443481502
+  },
+  "forgetting_rate": 0.8,
+  "forgetting_verdict": "HIGH \u2014 consider lower LR, fewer steps, or more replay",
+  "general_capability": {
+    "base_accuracy": 0.485,
+    "finetuned_accuracy": 0.79,
+    "retention_pct": 162.88659793814435,
+    "by_category": {
+      "math": {
+        "base": 0.9444444444444444,
+        "finetuned": 0.7407407407407407,
+        "delta": -0.20370370370370372
+      },
+      "general_knowledge": {
+        "base": 0.7906976744186046,
+        "finetuned": 0.9069767441860465,
+        "delta": 0.11627906976744184
+      },
+      "instruction_following": {
+        "base": 0.23529411764705882,
+        "finetuned": 0.5294117647058824,
+        "delta": 0.29411764705882354
+      },
+      "json_format": {
+        "base": 0.0,
+        "finetuned": 1.0,
+        "delta": 1.0
+      }
+    }
+  },
+  "noise_robustness": {
+    "noise_pct": 0.15,
+    "accuracy": 0.855,
+    "clean_accuracy": 0.9124423963133641
+  },
+  "sklearn_baselines": {
+    "DecisionTree (d=5)": {
+      "accuracy": 1.0,
+      "f1_macro": 1.0
+    },
+    "RandomForest (n=100)": {
+      "accuracy": 1.0,
+      "f1_macro": 1.0
+    },
+    "GradientBoosting": {
+      "accuracy": 1.0,
+      "f1_macro": 1.0
+    }
+  },
+  "train_time_minutes": 43.299604686101276,
+  "v1_comparison": {
+    "v1_accuracy": 1.0,
+    "v1_forgetting": 0.76,
+    "v1_trainable_params": 8798208,
+    "v1_steps": 400
+  }
+}

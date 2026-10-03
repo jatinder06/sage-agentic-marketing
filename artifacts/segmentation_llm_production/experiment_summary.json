@@ -1,0 +1,47 @@
+{
+  "experiment_name": "segmentation_llm_production",
+  "timestamp": "2026-05-18T07:00:08.516249",
+  "labels": [
+    "At Risk",
+    "Champions",
+    "Loyal",
+    "Needs Attention"
+  ],
+  "device": "mps",
+  "model_ref": "/Users/jatinder.singh/drive/ai_mkt/models/qwen2.5-0.5b-instruct-q5_0.gguf",
+  "model_base_ref": "/Users/jatinder.singh/drive/ai_mkt/models",
+  "gguf_file": "qwen2.5-0.5b-instruct-q5_0.gguf",
+  "adapter_dir": "/Users/jatinder.singh/drive/ai_mkt/experimentation/artifacts/segmentation_llm_production/final_model/lora_adapter",
+  "baseline_metrics": {
+    "accuracy": 0.22727272727272727,
+    "precision_macro": 0.056818181818181816,
+    "recall_macro": 0.25,
+    "f1_macro": 0.09259259259259259,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 618.0874466896057,
+    "latency_ms_p95": 834.1160297393799
+  },
+  "after_metrics": {
+    "accuracy": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_macro": 1.0,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 244.52304144242575,
+    "latency_ms_p95": 241.23597145080566
+  },
+  "improvement": {
+    "accuracy": 0.7727272727272727,
+    "precision_macro": 0.9431818181818182,
+    "recall_macro": 0.75,
+    "f1_macro": 0.9074074074074074,
+    "schema_valid_rate": 0.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": -373.56440524717993,
+    "latency_ms_p95": -592.8800582885742
+  },
+  "forgetting_rate": 0.76,
+  "train_time_minutes": 34.43905178705851
+}

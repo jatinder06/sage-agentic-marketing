@@ -1,0 +1,46 @@
+{
+  "experiment_name": "content_llm_production",
+  "timestamp": "2026-05-21T11:23:08.932610",
+  "labels": [
+    "DISCOUNT_REENGAGE",
+    "EDUCATIONAL_NURTURE",
+    "LOYALTY_UPSELL"
+  ],
+  "device": "mps",
+  "model_ref": "/Users/jatinder.singh/drive/ai_mkt/models/qwen2.5-0.5b-instruct-q5_0.gguf",
+  "model_base_ref": "/Users/jatinder.singh/drive/ai_mkt/models",
+  "gguf_file": "qwen2.5-0.5b-instruct-q5_0.gguf",
+  "adapter_dir": "/Users/jatinder.singh/drive/ai_mkt/experimentation/artifacts/content_llm_production/final_model/lora_adapter",
+  "baseline_metrics": {
+    "accuracy": 0.4409090909090909,
+    "precision_macro": 0.14696969696969697,
+    "recall_macro": 0.3333333333333333,
+    "f1_macro": 0.20399579390115666,
+    "schema_valid_rate": 0.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 1060.9113574028015,
+    "latency_ms_p95": 1449.556827545166
+  },
+  "after_metrics": {
+    "accuracy": 0.9819819819819819,
+    "precision_macro": 0.95119825708061,
+    "recall_macro": 0.9675883256528417,
+    "f1_macro": 0.959023734885804,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 752.9559701054662,
+    "latency_ms_p95": 958.6864471435542
+  },
+  "improvement": {
+    "accuracy": 0.541072891072891,
+    "precision_macro": 0.804228560110913,
+    "recall_macro": 0.6342549923195084,
+    "f1_macro": 0.7550279409846473,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": -307.9553872973353,
+    "latency_ms_p95": -490.8703804016118
+  },
+  "forgetting_rate": 0.5567010309278351,
+  "train_time_minutes": 31.94508340358734
+}
