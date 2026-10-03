@@ -1,0 +1,68 @@
+{
+  "experiment_name": "distilbert_sentiment_production",
+  "timestamp": "2026-05-28T10:39:24.584637",
+  "config": {
+    "experiment_name": "distilbert_sentiment_production",
+    "base_model": "distilbert-base-uncased",
+    "hf_cache_dir": "/Users/jatindersingh/work_data/mkt-ai/models/hf_cache",
+    "hf_token_env": "HF_TOKEN",
+    "num_labels": 3,
+    "max_length": 128,
+    "num_epochs": 10,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "train_batch_size": 32,
+    "eval_batch_size": 64,
+    "early_stopping_patience": 3,
+    "early_stopping_threshold": 0.001,
+    "seed": 42,
+    "data_dir": "/Users/jatindersingh/work_data/mkt-ai/data/processed/sentiment",
+    "max_train_samples": null,
+    "max_eval_samples": null,
+    "use_class_weights": true,
+    "use_focal_loss": false,
+    "focal_loss_gamma": 2.0,
+    "forgetting_eval_samples": 500,
+    "tokenize_num_proc": 4,
+    "dataloader_num_workers": 0,
+    "gradient_accumulation_steps": 1
+  },
+  "data": {
+    "train_samples": 57711,
+    "val_samples": 8711,
+    "test_samples": 8682,
+    "num_labels": 3,
+    "label_names": [
+      "negative",
+      "neutral",
+      "positive"
+    ]
+  },
+  "training": {
+    "epochs_completed": 6.0,
+    "early_stopped": true,
+    "training_time_minutes": 844.28
+  },
+  "test_metrics": {
+    "accuracy": 0.7985,
+    "precision": 0.798,
+    "recall": 0.7985,
+    "f1": 0.798,
+    "roc_auc": 0.9319,
+    "ece": 0.077,
+    "forgetting_rate": 0.0819
+  },
+  "per_class_f1": {
+    "negative": 0.7922,
+    "neutral": 0.7021,
+    "positive": 0.8942
+  },
+  "model_path": "/Users/jatindersingh/work_data/mkt-ai/experimentation/artifacts/distilbert_sentiment_production/final_model",
+  "integration": {
+    "wrapper_class": "SentimentAgent",
+    "wrapper_path": "/Users/jatindersingh/work_data/mkt-ai/experimentation/artifacts/distilbert_sentiment_production/final_model/sentiment_agent.py",
+    "usage": "agent = SentimentAgent(model_path); result = agent.predict(text)"
+  }
+}

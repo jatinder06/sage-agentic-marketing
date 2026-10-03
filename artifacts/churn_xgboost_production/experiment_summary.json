@@ -1,0 +1,135 @@
+{
+  "experiment_name": "churn_xgboost_production",
+  "timestamp": "2026-05-21T11:05:47.773822",
+  "data_path": "/Users/jatinder.singh/drive/ai_mkt/data/raw/churn/WA_Fn-UseC_-Telco-Customer-Churn.csv",
+  "n_samples": 7043,
+  "n_features": 36,
+  "feature_names": [
+    "gender",
+    "SeniorCitizen",
+    "Partner",
+    "Dependents",
+    "tenure",
+    "PhoneService",
+    "MultipleLines",
+    "InternetService",
+    "OnlineSecurity",
+    "OnlineBackup",
+    "DeviceProtection",
+    "TechSupport",
+    "StreamingTV",
+    "StreamingMovies",
+    "Contract",
+    "PaperlessBilling",
+    "PaymentMethod",
+    "MonthlyCharges",
+    "TotalCharges",
+    "AvgChargesPerMonth",
+    "ChargeGrowthRate",
+    "TenureMonthlyInteraction",
+    "TenureBin",
+    "ServiceCount",
+    "ProtectionCount",
+    "HasProtectionBundle",
+    "StreamingCount",
+    "CostPerService",
+    "ContractRisk",
+    "IsElectronicCheck",
+    "IsAutoPayment",
+    "ShortTenureMonthly",
+    "IsFiberOptic",
+    "FiberNoProtection",
+    "HasPartnerOrDependents",
+    "SeniorAlone"
+  ],
+  "test_size": 0.2,
+  "optuna_n_trials": 80,
+  "best_cv_auc": 0.8480782680278098,
+  "best_params": {
+    "n_estimators": 119,
+    "max_depth": 3,
+    "learning_rate": 0.03782504346254381,
+    "subsample": 0.7438578170204345,
+    "colsample_bytree": 0.5379463231889187,
+    "min_child_weight": 2,
+    "gamma": 2.0255259033918485,
+    "reg_alpha": 0.15145425312092817,
+    "reg_lambda": 0.006527620890729244
+  },
+  "xgb_metrics": {
+    "accuracy": 0.7402413058907026,
+    "precision_macro": 0.7061519302615193,
+    "recall_macro": 0.7565914903510812,
+    "f1_macro": 0.7105899387164119,
+    "precision_weighted": 0.7996501762818105,
+    "recall_weighted": 0.7402413058907026,
+    "f1_weighted": 0.7540479291869356,
+    "roc_auc": 0.84601643028753,
+    "average_precision": 0.6613452064705715,
+    "latency_ms_total": 48.42686653137207,
+    "latency_ms_per_sample": 0.034369671065558605,
+    "test_samples": 1409
+  },
+  "slm_metrics": {
+    "accuracy": 0.7914285714285715,
+    "precision_macro": 0.718741297688666,
+    "recall_macro": 0.6809292428513453,
+    "f1_macro": 0.6947103033779021,
+    "schema_valid_rate": 1.0,
+    "unknown_rate": 0.0,
+    "latency_ms_mean": 397.9737547465733,
+    "latency_ms_p95": 677.369678020477
+  },
+  "comparison": [
+    {
+      "Metric": "Accuracy",
+      "XGBoost": 0.7402413058907026,
+      "SLM (Fine-tuned)": 0.7914285714285715,
+      "SLM (Baseline)": 0.7727272727272727
+    },
+    {
+      "Metric": "Precision (macro)",
+      "XGBoost": 0.7061519302615193,
+      "SLM (Fine-tuned)": 0.718741297688666,
+      "SLM (Baseline)": 0.38636363636363635
+    },
+    {
+      "Metric": "Recall (macro)",
+      "XGBoost": 0.7565914903510812,
+      "SLM (Fine-tuned)": 0.6809292428513453,
+      "SLM (Baseline)": 0.5
+    },
+    {
+      "Metric": "F1 (macro)",
+      "XGBoost": 0.7105899387164119,
+      "SLM (Fine-tuned)": 0.6947103033779021,
+      "SLM (Baseline)": 0.4358974358974359
+    },
+    {
+      "Metric": "ROC-AUC",
+      "XGBoost": 0.84601643028753,
+      "SLM (Fine-tuned)": NaN,
+      "SLM (Baseline)": NaN
+    },
+    {
+      "Metric": "Latency (ms/sample)",
+      "XGBoost": 0.034369671065558605,
+      "SLM (Fine-tuned)": 397.9737547465733,
+      "SLM (Baseline)": 590.9617532383312
+    },
+    {
+      "Metric": "Schema Valid Rate",
+      "XGBoost": 1.0,
+      "SLM (Fine-tuned)": 1.0,
+      "SLM (Baseline)": 0.0
+    },
+    {
+      "Metric": "Training Time (min)",
+      "XGBoost": 0.028650085131327312,
+      "SLM (Fine-tuned)": 62.19628814856211,
+      "SLM (Baseline)": 0.0
+    }
+  ],
+  "tuning_minutes": 8.983131198088328,
+  "train_time_seconds": 1.7190051078796387
+}

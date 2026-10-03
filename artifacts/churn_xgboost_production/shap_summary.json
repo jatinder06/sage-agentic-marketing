@@ -1,0 +1,14 @@
+{
+  "top_features": {
+    "Contract": 0.5531349182128906,
+    "tenure": 0.24164985120296478,
+    "ContractRisk": 0.19252841174602509,
+    "IsFiberOptic": 0.18532179296016693
+  },
+  "feature_group_importance": {
+    "Tenure & Charges": 0.6984220743179321,
+    "Contract & Payment": 0.9430416226387024,
+    "Services": 0.7815114855766296,
+    "Demographics": 0.047533098608255386
+  }
+}
